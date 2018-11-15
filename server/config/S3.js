@@ -14,7 +14,7 @@ const S3 = new AWS.S3()
 async function uploadImage(image) {
   try {
     const buffer = fs.readFileSync(image)
-    const type = fileType(image)
+    const type = fileType(buffer)
     const params = {
       ACL: 'public-read',
       Body: buffer,
